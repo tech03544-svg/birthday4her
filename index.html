@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Birthday My Love</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      overflow-x: hidden;
+      color: #fff;
+      text-align: center;
+    }
+    h1 {
+      font-size: 3rem;
+      margin-top: 50px;
+      animation: glow 2s infinite alternate;
+    }
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #ff6fa5, 0 0 20px #ff6fa5; }
+      to { text-shadow: 0 0 20px #ff3f81, 0 0 40px #ff3f81; }
+    }
+    .name {
+      font-size: 2rem;
+      margin: 20px 0;
+      font-weight: bold;
+      color: #ffe7f1;
+    }
+    .hearts {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: -1;
+    }
+    .heart {
+      position: absolute;
+      color: #ff3f81;
+      font-size: 20px;
+      animation: floatUp 6s linear infinite;
+    }
+    @keyframes floatUp {
+      0% { transform: translateY(100vh) scale(0.5); opacity: 1; }
+      100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
+    }
+    .card {
+      background: rgba(255, 255, 255, 0.15);
+      margin: 40px auto;
+      padding: 20px;
+      border-radius: 20px;
+      max-width: 600px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    }
+    textarea {
+      width: 90%;
+      min-height: 120px;
+      margin-top: 15px;
+      padding: 10px;
+      border-radius: 10px;
+      border: none;
+      outline: none;
+      font-size: 1rem;
+      font-family: inherit;
+      resize: vertical;
+    }
+    img {
+      max-width: 100%;
+      border-radius: 15px;
+      margin-top: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    }
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 20px;
+      background: #ff3f81;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background: #ff1f65;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎉 Happy Birthday 🎉</h1>
+  <div class="name" contenteditable="true">My Beautiful Love 💖</div>
+
+  <div class="card">
+    <h2>📸 Special Photo</h2>
+    <div id="photo-area">
+      <!-- Embedded sample image (placeholder base64 small pink square) -->
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAI0lEQVQoU2N8z/CfAQgwgAnG0A0hC6FEpYHgUoDSDg0Am5IDkma9dHYAAAAASUVORK5CYII=" alt="Her Photo">
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>📝 Write a Poem</h2>
+    <textarea placeholder="Write your sweet poem here..."></textarea>
+  </div>
+
+  <div class="card">
+    <h2>💌 Express Your Feelings</h2>
+    <textarea placeholder="Write your heartfelt message here..."></textarea>
+  </div>
+
+  <button onclick="alert('She will love this! 💖')">Send Love 💝</button>
+
+  <div class="hearts"></div>
+
+  <script>
+    // Floating hearts
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.innerText = "💖";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.fontSize = Math.random() * 20 + 15 + "px";
+      heart.style.animationDuration = Math.random() * 3 + 3 + "s";
+      document.querySelector(".hearts").appendChild(heart);
+      setTimeout(() => heart.remove(), 6000);
+    }
+    setInterval(createHeart, 500);
+  </script>
+</body>
+</html>
